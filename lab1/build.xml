@@ -1,0 +1,27 @@
+<project name="lab1" default = "copy" >
+    <target name="init">
+        <echo message="Building lab1 Project" />
+    </target>
+    <target name="create" depends ="init">
+        <delete dir= "D:\apache-tomcat-9.0.37\webapps\lab1\" />
+        <mkdir dir= "D:\apache-tomcat-9.0.37\webapps\lab1\" />
+        <mkdir dir= "D:\apache-tomcat-9.0.37\webapps\lab1\WEB-INF" />
+        <mkdir dir= "D:\apache-tomcat-9.0.37\webapps\lab1\js\" />
+        <mkdir dir= "D:\apache-tomcat-9.0.37\webapps\lab1\images\" />
+        <mkdir dir= "D:\apache-tomcat-9.0.37\webapps\lab1\jsp\" />
+        <mkdir dir= "D:\apache-tomcat-9.0.37\webapps\lab1\servlets\" />
+    </target>
+
+    <target name="copy" depends ="create">
+        <copy file= "D:\4 curse\ПвИ\Сделанные лабы\lab1\WEB-INF\web.xml"
+              todir="D:\apache-tomcat-9.0.37\webapps\lab1\WEB-INF\" />
+        <copy file= "D:\4 curse\ПвИ\Сделанные лабы\lab1\index.html"
+              todir="D:\apache-tomcat-9.0.37\webapps\lab1\" />
+        <copy file= "D:\4 curse\ПвИ\Сделанные лабы\lab1\address.html"
+              todir="D:\apache-tomcat-9.0.37\webapps\lab1\" />
+        <copy file= "D:\4 curse\ПвИ\Сделанные лабы\lab1\education.html"
+              todir="D:\apache-tomcat-9.0.37\webapps\lab1\" />
+        <copy file= "D:\4 curse\ПвИ\Сделанные лабы\lab1\images\javalogo.png"
+              todir="D:\apache-tomcat-9.0.37\webapps\lab1\images\" />
+    </target>
+</project>
