@@ -19,10 +19,10 @@ public class Aaa extends HttpServlet implements Servlet {
         HttpURLConnection httpURLConnection = (HttpURLConnection) obj.openConnection();
 
         httpURLConnection.setRequestMethod("POST");
-        httpURLConnection.setRequestProperty("ErsHeader1", "A header 1 value");
-        httpURLConnection.setRequestProperty("ErsHeader2", "A header 2 value");
-        httpURLConnection.setRequestProperty("ErsHeader3", "A header 3 value");
-        String urlParameters = "queryParam1=AParam1value&queryParam2=AParam2value&queryParam3=AParam3value";
+        httpURLConnection.setRequestProperty("Header1", "Header1");
+        httpURLConnection.setRequestProperty("Header2", "Header2");
+        httpURLConnection.setRequestProperty("Header3", "Header3");
+        String urlParameters = "Param1=Param1&Param2=Param2&Param3=Param3";
 
         httpURLConnection.setUseCaches(false);
         httpURLConnection.setDoInput(true);
@@ -45,7 +45,7 @@ public class Aaa extends HttpServlet implements Servlet {
         Map<String, List<String>> headerNames = httpURLConnection.getHeaderFields();
 
         pw.println();
-        pw.println("Response Headers (Servlet main.Aaa):");
+        pw.println("Headers from Servlet Bbb :");
 
         for (Map.Entry<String, List<String>> header : headerNames.entrySet()) {
             pw.println(header.getKey() + ": " + header.getValue());
