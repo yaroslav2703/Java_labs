@@ -120,4 +120,29 @@ public class ProductDB {
         }
         return 0;
     }
+
+    public static Product ExecuteProcedure(int id)
+    {
+        Product product = new Product();
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+            try (Connection conn = DriverManager.getConnection(url, username, password)){
+
+                String sql = "{call SelectOne(?)}";
+                try(CallableStatement cs = conn.prepareCall(sql)){
+                    cs.setInt(1, id);
+                    ResultSet resultSet = cs.executeQuery();
+                    while (resultSet.next()) {
+                        product.setId(resultSet.getInt(1));
+                        product.setName(resultSet.getString(2));
+                        product.setPrice(resultSet.getInt(3));
+                    }
+                }
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex);
+        }
+        return product;
+    }
 }

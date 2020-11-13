@@ -22,5 +22,9 @@
         </td></tr>
 </c:forEach>
 </table>
+        <form method="get" action='<c:url value="/procedure" />' style="display:inline;">
+        <input type="text" name="id" value="">
+        <button type="submit">Procedure</button>
+        </form>
 </body>
 </html>
