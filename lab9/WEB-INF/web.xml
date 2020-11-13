@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <display-name>lab9</display-name>
+    <servlet>
+        <servlet-name>Ccc</servlet-name>
+        <servlet-class>Ccc</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Ccc</servlet-name>
+        <url-pattern>/Ccc</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>F1</filter-name>
+        <filter-class>flt.F1</filter-class>
+    </filter>
+    <filter>
+        <filter-name>F2</filter-name>
+        <filter-class>flt.F2</filter-class>
+    </filter>
+    <filter>
+        <filter-name>F3</filter-name>
+        <filter-class>flt.F3</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>F1</filter-name>
+        <url-pattern>/Ccc</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>F2</filter-name>
+        <url-pattern>/Ccc</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>F3</filter-name>
+        <url-pattern>/Ccc</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>F1</filter-name>
+        <url-pattern>/Ccc.jsp</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>lst.L1</listener-class>
+    </listener>
+    <listener>
+        <listener-class>lst.L2</listener-class>
+    </listener>
+
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
