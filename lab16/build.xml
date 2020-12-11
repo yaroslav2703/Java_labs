@@ -1,0 +1,42 @@
+<project name="lab16" default = "copy" >
+    <target name="init">
+        <echo message="Build lab16 Project" />
+        <property name = "server"
+                  value = "D:\apache-tomcat-9.0.37\" />
+        <property name = "work"
+                  value = "D:\4 curse\ПвИ\Сделанные лабы\lab16\" />
+    </target>
+    <target name="compile" depends ="init">
+        <delete verbose ="true">
+            <fileset dir="${work}build"/>
+        </delete>
+        <javac srcdir = "${work}src"
+               destdir = "${work}\build">
+            <classpath>
+                <fileset file= "${server}lib\javax.websocket-api-1.1.jar"/>
+                <fileset file= "${server}\lib\servlet-api.jar" />
+                <fileset file= "${server}lib\jsp-api.jar"/>
+                <fileset file= "${server}lib\mysql-connector-java-8.0.22"/>
+                <fileset file= "${server}lib\jstl-1.2"/>
+
+            </classpath>
+        </javac>
+    </target>
+    <target name="create" depends ="compile">
+        <delete dir= "${server}webapps\lab16\" />
+        <mkdir dir= "${server}webapps\lab16\" />
+        <mkdir dir= "${server}webapps\lab16\WEB-INF" />
+    </target>
+
+    <target name="copy" depends ="create">
+        <copy todir="${server}webapps\lab16\WEB-INF\">
+            <fileset dir="${work}WEB-INF\"/>
+        </copy>
+        <copy todir="${server}webapps\lab16\">
+            <fileset dir="${work}jsp" />
+        </copy>
+        <copy todir="${server}webapps\lab16\WEB-INF\classes">
+            <fileset dir="${work}build"/>
+        </copy>
+    </target>
+</project>
